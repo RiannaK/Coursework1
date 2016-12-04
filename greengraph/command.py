@@ -18,6 +18,7 @@ def process():
     my_graph = Greengraph(arguments.from1, arguments.to)
     data = my_graph.green_between(arguments.steps)
     plt.plot(data)
+    plt.show()
 
 if __name__ == "__main__":
     process()

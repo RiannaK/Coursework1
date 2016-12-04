@@ -1,0 +1,16 @@
+Things to ask:
+Do we include the build/distribution folders (from install of setup.py)
+Can we change the code - readability...
+
+
+Things for report:
+from - didn't work
+issues in github - love doing it - closed out issues when we committed
+travis continuous integration
+
+
+Things to do:
+Lisencse and those files
+--help comes out as optional
+from1 
+
