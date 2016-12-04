@@ -8,10 +8,15 @@ Things for report:
 from - didn't work
 issues in github - closed out issues when we committed
 travis continuous integration - travis is very useful and he automatically installs pytest and mock. 
+Started testing on static methods as it allowed us to bypass the Greengraph constructor, it was handy to bypass the constructor as I hadn't developed mocks for the geocoder
+Found AAA (arrange, assert, act) style online
+Need numpy.testing for array assertions (static method testing)
+ 
 
 
 Things to do:
 License and those files
 --help comes out as optional
 from1 
+add in __repr__
 

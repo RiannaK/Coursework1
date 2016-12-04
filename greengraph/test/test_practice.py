@@ -7,6 +7,8 @@ def add_one(x):
 
 def test_add_one():
     number = 3
+    expected = 4
+
     result = add_one(number)
 
-    assert result == 4
+    assert result == expected
