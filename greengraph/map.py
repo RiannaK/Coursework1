@@ -5,9 +5,11 @@ import requests
 
 
 class Map(object):
-    def __init__(self, lat, long, satellite=True, zoom=10,
-                 size=(400, 400), sensor=False):
-        base = "http://maps.googleapis.com/maps/api/staticmap?"
+    def __init__(self, lat, long, satellite=True, zoom=10, size=(400, 400), sensor=False):
+
+        self.lat = lat
+        self.long = long
+        self.size = size
 
         params = dict(
             sensor=str(sensor).lower(),
@@ -20,10 +22,14 @@ class Map(object):
         if satellite:
             params["maptype"] = "satellite"
 
-        self.image = requests.get(base,
-                                  params=params).content  # Fetch our PNG image data
+        base = "http://maps.googleapis.com/maps/api/staticmap?"
+        self.image = requests.get(base, params=params).content  # Fetch our PNG image data
         content = BytesIO(self.image)
         self.pixels = img.imread(content)  # Parse our PNG image as a numpy array
+
+    def __repr__(self):
+        grid_size = "x".join(map(str, self.size))
+        return "{0} map centered at ({1},{2})".format(grid_size, self.lat, self.long)
 
     def green(self, threshold):
         # Use NumPy to build an element-by-element logical array

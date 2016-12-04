@@ -38,4 +38,4 @@ def test_geolocate():
     # Assert
     assert location == expected
 
-# test_geolocate()
+test_geolocate()

@@ -1,6 +1,6 @@
 Things to ask:
 Do we include the build/distribution folders (from install of setup.py) on github or should i add to .gitignore
-Can we change the code - readability...
+Can we change the code (e.g. expand list comprehension) - readability/make it easier to debug
 How do you expect to install the python package. Should it be via "python setup.py install" or should it be using the "pip" keyword? (pg 237-239 of notes)
 
 

@@ -9,6 +9,9 @@ class Greengraph(object):
         self.end = end
         self.geocoder = geopy.geocoders.GoogleV3(domain="maps.google.co.uk")
 
+    def __repr__(self):
+        return "Graph from {0} to {1}".format(self.start, self.end)
+
     @staticmethod  # Do not need to include self in the method
     def location_sequence(start, end, steps):
         lats = np.linspace(start[0], end[0], steps)
