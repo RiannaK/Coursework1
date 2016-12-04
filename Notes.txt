@@ -1,16 +1,17 @@
 Things to ask:
-Do we include the build/distribution folders (from install of setup.py)
+Do we include the build/distribution folders (from install of setup.py) on github or should i add to .gitignore
 Can we change the code - readability...
+How do you expect to install the python package. Should it be via "python setup.py install" or should it be using the "pip" keyword? (pg 237-239 of notes)
 
 
 Things for report:
 from - didn't work
-issues in github - love doing it - closed out issues when we committed
-travis continuous integration
+issues in github - closed out issues when we committed
+travis continuous integration - travis is very useful and he automatically installs pytest and mock. 
 
 
 Things to do:
-Lisencse and those files
+License and those files
 --help comes out as optional
 from1 
 
