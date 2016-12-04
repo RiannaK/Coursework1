@@ -22,3 +22,20 @@ def test_graph_location_sequence():
 
     # Assert
     array_assert(sequences, expected, 10, "Unexpected location sequences")
+
+
+def test_geolocate():
+
+    # Arrange
+    place = "London"
+    some_graph = Greengraph("DummyLocation1", "DummyLocation2")
+
+    expected = (51.5073509, -0.1277583)
+
+    # Act
+    location = some_graph.geolocate(place)
+
+    # Assert
+    assert location == expected
+
+# test_geolocate()
