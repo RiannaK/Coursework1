@@ -5,6 +5,35 @@ from numpy.testing import assert_array_almost_equal as array_assert
 from greengraph.graph import Greengraph
 
 
+@patch.object(geopy.geocoders, 'GoogleV3')
+def test_map_init_with_defaults(mock_imread, mock_get):
+
+    # Arrange
+    lattitude = 10
+    longitude = 20
+    mock_byte_array = b"MockByteArrayFromGoogleRequest"
+    mock_get.return_value.content = mock_byte_array
+    expected_params = {
+        "sensor": "false",
+        "maptype": "satellite",
+        "zoom": 10,
+        "size": "400x400",
+        "center": "10,20",
+        "style": "feature:all|element:labels|visibility:off"}
+
+    # Act
+    sut = Map(lattitude, longitude)
+
+    # Assert
+    assert sut.lat == lattitude
+    assert sut.long == longitude
+    assert sut.image == mock_byte_array
+
+    mock_get.assert_called_with("http://maps.googleapis.com/maps/api/staticmap?", params=expected_params)
+
+
+
+
 def test_graph_location_sequence():
 
     # Arrange

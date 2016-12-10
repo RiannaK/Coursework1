@@ -66,4 +66,3 @@ def test_map_init(mock_imread, mock_get):
         mock_get.assert_called_with(base, params=params)
 
 
-test_map_init()
