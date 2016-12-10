@@ -9,7 +9,12 @@ python:
 # command to install dependencies
 install:
   - python setup.py install
+  - pip install coveralls
+  - pip install pytest-cov
 
 # command to run tests
 script:
-  - py.test
+  - py.test --cov-report term-missing --cov=greengraph
+  
+after_success:
+  - coveralls
