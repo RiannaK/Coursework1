@@ -21,6 +21,18 @@ def test_graph_init(mock_GoogleV3):
 
     mock_GoogleV3.assert_called_with(domain="maps.google.co.uk")
 
+def test_graph_repr():
+
+    # Arrange
+    start = "DummyLocation1"
+    end = "DummyLocation2"
+    sut = Greengraph(start, end)
+
+    # Act
+    representation = str(sut)
+
+    # Assert
+    assert representation == "Graph from DummyLocation1 to DummyLocation2"
 
 def test_graph_location_sequence():
 
@@ -79,6 +91,6 @@ def test_geolocate_with_decorator(mock_geocoder):
     assert location == expected
     mock_geocoder.assert_called_with(place, exactly_one=False)
 
-test_geolocate_with_decorator()
+# def test_green_between():
 
 

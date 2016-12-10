@@ -65,4 +65,17 @@ def test_map_init(mock_imread, mock_get):
 
         mock_get.assert_called_with(base, params=params)
 
+def test_map_repr():
+
+    # Arrange
+    grid_size = (300, 500)
+    lat = 10
+    long = 20
+    sut = Map(lat, long, size=grid_size)
+
+    # Act
+    representation = str(sut)
+
+    # Assert
+    assert representation == "300x500 map centered at (10,20)"
 
