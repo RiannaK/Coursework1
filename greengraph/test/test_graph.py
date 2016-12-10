@@ -44,4 +44,22 @@ def test_geolocate():
         assert location == expected
         mock_geocoder.assert_called_with(place, exactly_one=False)
 
-test_geolocate()
+
+@patch.object(geopy.geocoders.GoogleV3, 'geocode')
+def test_geolocate_with_decorator(mock_geocoder):
+
+    # Arrange
+    place = "London"
+    sut = Greengraph("DummyLocation1", "DummyLocation2")
+
+    expected = (51.5073509, -0.1277583)
+    mock_geocoder.return_value = [[place, expected]]
+
+    # Act
+    location = sut.geolocate(place)
+
+    # Assert
+    assert location == expected
+    mock_geocoder.assert_called_with(place, exactly_one=False)
+
+test_geolocate_with_decorator()
