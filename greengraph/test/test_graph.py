@@ -1,4 +1,6 @@
+from mock import patch
 import pytest
+import geopy
 from numpy.testing import assert_array_almost_equal as array_assert
 from greengraph.graph import Greengraph
 
@@ -26,16 +28,20 @@ def test_graph_location_sequence():
 
 def test_geolocate():
 
-    # Arrange
-    place = "London"
-    some_graph = Greengraph("DummyLocation1", "DummyLocation2")
+    with patch.object(geopy.geocoders.GoogleV3, 'geocode') as mock_geocoder:
 
-    expected = (51.5073509, -0.1277583)
+        # Arrange
+        place = "London"
+        some_graph = Greengraph("DummyLocation1", "DummyLocation2")
 
-    # Act
-    location = some_graph.geolocate(place)
+        expected = (51.5073509, -0.1277583)
+        mock_geocoder.return_value = [[place, expected]]
 
-    # Assert
-    assert location == expected
+        # Act
+        location = some_graph.geolocate(place)
+
+        # Assert
+        assert location == expected
+        mock_geocoder.assert_called_with(place, exactly_one=False)
 
 test_geolocate()

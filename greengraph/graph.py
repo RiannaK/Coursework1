@@ -4,6 +4,7 @@ from greengraph.map import Map
 
 
 class Greengraph(object):
+
     def __init__(self, start, end):
         self.start = start
         self.end = end
@@ -19,7 +20,8 @@ class Greengraph(object):
         return np.vstack([lats, longs]).transpose()
 
     def geolocate(self, place):
-        return self.geocoder.geocode(place, exactly_one=False)[0][1]
+        response = self.geocoder.geocode(place, exactly_one=False)
+        return response[0][1]
 
     def green_between(self, steps):
         return [Map(*location).count_green()
