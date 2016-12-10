@@ -32,13 +32,13 @@ def test_geolocate():
 
         # Arrange
         place = "London"
-        some_graph = Greengraph("DummyLocation1", "DummyLocation2")
+        sut = Greengraph("DummyLocation1", "DummyLocation2")
 
         expected = (51.5073509, -0.1277583)
         mock_geocoder.return_value = [[place, expected]]
 
         # Act
-        location = some_graph.geolocate(place)
+        location = sut.geolocate(place)
 
         # Assert
         assert location == expected
