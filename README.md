@@ -8,8 +8,8 @@ Build status
 
 | Branch | Status | Coverage | 
 | ------ | ------ | -------- |
-| Master |[![Build Status](https://travis-ci.org/RiannaK/Coursework1.svg?branch=master)](https://travis-ci.org/RiannaK/Coursework1)| Placeholder |
-| Develop |[![Build Status](https://travis-ci.org/RiannaK/Coursework1.svg?branch=develop)](https://travis-ci.org/RiannaK/Coursework1)| [![Coverage Status](https://coveralls.io/repos/github/RiannaK/Coursework1/badge.svg?branch=develop)](https://coveralls.io/github/RiannaK/Coursework1?branch=develop)|
+| Master |[![Build Status](https://travis-ci.org/RiannaK/Coursework1.svg?branch=master)](https://travis-ci.org/RiannaK/Coursework1)| [![Coverage Status](https://coveralls.io/repos/github/RiannaK/Coursework1/badge.svg?branch=master)](https://coveralls.io/github/RiannaK/Coursework1?branch=master) |
+| Develop |[![Build Status](https://travis-ci.org/RiannaK/Coursework1.svg?branch=develop)](https://travis-ci.org/RiannaK/Coursework1)| [![Coverage Status](https://coveralls.io/repos/github/RiannaK/Coursework1/badge.svg?branch=develop)](https://coveralls.io/github/RiannaK/Coursework1?branch=develop) |
 
 
 
