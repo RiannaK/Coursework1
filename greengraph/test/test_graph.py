@@ -63,3 +63,6 @@ def test_geolocate_with_decorator(mock_geocoder):
     mock_geocoder.assert_called_with(place, exactly_one=False)
 
 test_geolocate_with_decorator()
+
+
+def test_green_between():

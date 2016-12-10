@@ -4,7 +4,6 @@ from greengraph.map import Map
 
 
 class Greengraph(object):
-
     def __init__(self, start, end):
         self.start = start
         self.end = end
@@ -24,8 +23,17 @@ class Greengraph(object):
         return response[0][1]
 
     def green_between(self, steps):
-        return [Map(*location).count_green()
-                for location in self.location_sequence(
-                self.geolocate(self.start),
-                self.geolocate(self.end),
-                steps)]
+
+        geo_start = self.geolocate(self.start)
+        geo_end = self.geolocate(self.end)
+
+        locations = self.location_sequence(geo_start, geo_end, steps)
+
+        green_pixels = []
+        for location in locations:
+            map = Map(*location)
+            green_count = map.count_green()
+
+            green_pixels.append(green_count)
+
+        return green_pixels
