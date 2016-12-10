@@ -6,32 +6,20 @@ from greengraph.graph import Greengraph
 
 
 @patch.object(geopy.geocoders, 'GoogleV3')
-def test_map_init_with_defaults(mock_imread, mock_get):
+def test_graph_init(mock_GoogleV3):
 
     # Arrange
-    lattitude = 10
-    longitude = 20
-    mock_byte_array = b"MockByteArrayFromGoogleRequest"
-    mock_get.return_value.content = mock_byte_array
-    expected_params = {
-        "sensor": "false",
-        "maptype": "satellite",
-        "zoom": 10,
-        "size": "400x400",
-        "center": "10,20",
-        "style": "feature:all|element:labels|visibility:off"}
+    start = "DummyLocation1"
+    end = "DummyLocation2"
 
     # Act
-    sut = Map(lattitude, longitude)
+    sut = Greengraph(start, end)
 
     # Assert
-    assert sut.lat == lattitude
-    assert sut.long == longitude
-    assert sut.image == mock_byte_array
+    assert sut.start == start
+    assert sut.end == end
 
-    mock_get.assert_called_with("http://maps.googleapis.com/maps/api/staticmap?", params=expected_params)
-
-
+    mock_GoogleV3.assert_called_with(domain="maps.google.co.uk")
 
 
 def test_graph_location_sequence():
