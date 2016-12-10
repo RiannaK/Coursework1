@@ -65,4 +65,3 @@ def test_geolocate_with_decorator(mock_geocoder):
 test_geolocate_with_decorator()
 
 
-def test_green_between():
