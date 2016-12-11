@@ -11,7 +11,7 @@ def process():
     # Now we add the arguments.
     parser.add_argument('-f', '--from', type=str, default='London', dest='FROM', help='location to plot green from')
 
-    parser.add_argument('-t', '--to', type=str, default='Cambridge', help='location to plot green to')
+    parser.add_argument('-t', '--to', type=str, default='Oxford', help='location to plot green to')
 
     parser.add_argument('-s', '--steps', type=int, default=20,
                         help='the number of points to sample between the two locations')
@@ -33,7 +33,7 @@ def process():
     plt.ylabel('Green pixels')
     plt.title(title)
     plt.show()
-    plt.savefig(arguments.out)
+    plt.savefig(arguments.out) # fixme no image is shown
 
 if __name__ == "__main__":
     process()
