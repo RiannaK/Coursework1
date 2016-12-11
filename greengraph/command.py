@@ -13,7 +13,7 @@ def process():
 
     parser.add_argument('-t', '--to', type=str, default='Oxford', help='location to plot green to')
 
-    parser.add_argument('-s', '--steps', type=int, default=20,
+    parser.add_argument('-s', '--steps', type=int, default=10,
                         help='the number of points to sample between the two locations')
 
     parser.add_argument('-o', '--out', type=str, default='GreenGraph.png',

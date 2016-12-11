@@ -3,7 +3,8 @@ from mock import patch
 from greengraph.command import process as sut
 from matplotlib import pyplot as plt
 from greengraph.graph import Greengraph
-
+import yaml
+import os
 
 @patch.object(plt, 'plot')
 @patch.object(plt, 'xlabel')
@@ -15,15 +16,22 @@ from greengraph.graph import Greengraph
 def test_command_process(mock_green_between, mock_savefig, mock_show, mock_title, mock_ylabel, mock_xlabel, mock_plot):
     """Tests the command line entry point"""
     # Arrange
-    mock_args = ["some_file.py", "--from", "Bristol", "--to", "Cambridge", "--steps", "5", "--out", "some_file.png"]
-    sys.argv = mock_args
+    with open(os.path.join(os.path.dirname(__file__), 'fixtures', 'test_command_fixtures.yaml')) as fixtures_file:
+        fixtures = yaml.load(fixtures_file)['test_command_process']
 
-    # Act
-    sut()
+    for fixture in fixtures:
 
-    # Assert
-    mock_green_between.assert_called_with(5)
-    mock_title.assert_called_with("Graph of green pixel count from Bristol to Cambridge")
-    mock_savefig.assert_called_with("some_file.png")
+        mock_args = fixture.pop('mock_args')
+        steps = fixture.pop('steps')
+        title = fixture.pop('title')
+        output = fixture.pop('output')
 
+        sys.argv = mock_args
 
+        # Act
+        sut()
+
+        # Assert
+        mock_green_between.assert_called_with(steps)
+        mock_title.assert_called_with(title)
+        mock_savefig.assert_called_with(output)
