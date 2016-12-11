@@ -9,6 +9,7 @@ from greengraph.map import Map
 @patch.object(requests, 'get')
 @patch.object(img, 'imread')
 def test_map_init_with_defaults(mock_imread, mock_get):
+    """Tests the map constuctor with default optional parameters"""
     # Arrange
     lattitude = 10
     longitude = 20
@@ -36,6 +37,7 @@ def test_map_init_with_defaults(mock_imread, mock_get):
 @patch.object(requests, 'get')
 @patch.object(img, 'imread')
 def test_map_init(mock_imread, mock_get):
+    """Tests the map constuctor with a range of optional parameters"""
 
     with open(os.path.join(os.path.dirname(__file__), 'fixtures', 'test_map_fixtures.yaml')) as fixtures_file:
         fixtures = yaml.load(fixtures_file)['test_map_init']
@@ -65,7 +67,9 @@ def test_map_init(mock_imread, mock_get):
 
         mock_get.assert_called_with(base, params=params)
 
+
 def test_map_repr():
+    """Tests map representation"""
 
     # Arrange
     grid_size = (300, 500)

@@ -8,8 +8,11 @@ from greengraph.graph import Greengraph
 from greengraph.map import Map
 
 
+
+
 @patch.object(geopy.geocoders, 'GoogleV3')
 def test_graph_init(mock_GoogleV3):
+    """Tests map constructor"""
 
     # Arrange
     start = "DummyLocation1"
@@ -24,7 +27,9 @@ def test_graph_init(mock_GoogleV3):
 
     mock_GoogleV3.assert_called_with(domain="maps.google.co.uk")
 
+
 def test_graph_repr():
+    """Tests map representation"""
 
     # Arrange
     start = "DummyLocation1"
@@ -37,7 +42,9 @@ def test_graph_repr():
     # Assert
     assert representation == "Graph from DummyLocation1 to DummyLocation2"
 
+
 def test_graph_location_sequence():
+    """Tests the staticmethod location_sequence"""
 
     # Arrange
     start = 50, 60
@@ -59,6 +66,7 @@ def test_graph_location_sequence():
 
 
 def test_geolocate():
+    """Tests the geolocate method using the context manager variation of patch"""
 
     with patch.object(geopy.geocoders.GoogleV3, 'geocode') as mock_geocoder:
 
@@ -79,7 +87,7 @@ def test_geolocate():
 
 @patch.object(geopy.geocoders.GoogleV3, 'geocode')
 def test_geolocate_with_decorator(mock_geocoder):
-
+    """Tests the geolocate method using the decorator variation of patch"""
     # Arrange
     place = "London"
     sut = Greengraph("DummyLocation1", "DummyLocation2")
