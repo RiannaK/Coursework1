@@ -83,3 +83,49 @@ def test_map_repr():
     # Assert
     assert representation == "300x500 map centered at (10,20)"
 
+@patch.object(Map, 'green')
+@patch.object(requests, 'get')
+@patch.object(img, 'imread')
+def test_map_count_green_with_defaults(mock_imread, mock_get, mock_green):
+    """Tests the count_green method with default threshold input"""
+    # Arrange
+    lattitude = 10
+    longitude = 20
+    mock_byte_array = b"MockByteArrayFromGoogleRequest"
+    mock_get.return_value.content = mock_byte_array
+    mock_green_response = [True, True, True, True, False, False, False]
+    mock_green.return_value = mock_green_response
+
+    sut = Map(lattitude, longitude)
+
+    # Act
+    count = sut.count_green()
+
+    # Assert
+    assert count == 4
+    mock_green.assert_called_with(1.1)
+
+@patch.object(Map, 'green')
+@patch.object(requests, 'get')
+@patch.object(img, 'imread')
+def test_map_count_green(mock_imread, mock_get, mock_green):
+    """Tests the count_green method with specified threshold input"""
+    # Arrange
+    lattitude = 10
+    longitude = 20
+    mock_byte_array = b"MockByteArrayFromGoogleRequest"
+    mock_get.return_value.content = mock_byte_array
+    threshold = 1.5
+    mock_green_response = [True, True, True, True, False, False, False]
+    mock_green.return_value = mock_green_response
+
+    sut = Map(lattitude, longitude)
+
+    # Act
+    count = sut.count_green(threshold)
+
+    # Assert
+    assert count == 4
+    mock_green.assert_called_with(threshold)
+
+test_map_count_green()

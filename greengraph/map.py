@@ -39,7 +39,8 @@ class Map(object):
         return green
 
     def count_green(self, threshold=1.1):
-        return np.sum(self.green(threshold))
+        logicals = self.green(threshold)
+        return np.sum(logicals)
 
     def show_green(self, data, threshold=1.1):
         green = self.green(threshold)

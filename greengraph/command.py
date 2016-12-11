@@ -35,5 +35,5 @@ def process():
     plt.show()
     plt.savefig(arguments.out) # fixme no image is shown
 
-if __name__ == "__main__":
+if __name__ == "__main__": # pragma: no cover
     process()
