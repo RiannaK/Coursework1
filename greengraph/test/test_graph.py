@@ -1,8 +1,11 @@
+from matplotlib import image as img
+import requests
 from mock import patch
 import pytest
 import geopy
 from numpy.testing import assert_array_almost_equal as array_assert
 from greengraph.graph import Greengraph
+from greengraph.map import Map
 
 
 @patch.object(geopy.geocoders, 'GoogleV3')
@@ -91,6 +94,28 @@ def test_geolocate_with_decorator(mock_geocoder):
     assert location == expected
     mock_geocoder.assert_called_with(place, exactly_one=False)
 
-# def test_green_between():
+@patch.object(Greengraph, 'geolocate')
+@patch.object(Map, 'count_green')
+@patch.object(requests, 'get')
+@patch.object(img, 'imread')
+def test_green_between(mock_imread, mock_get, mock_count_green, mock_graph):
+
+    # Arrange
+    start = "DummyLocation1"
+    end = "DummyLocation2"
+    sut = Greengraph(start, end)
+    steps = 6
+    mock_graph.side_effect = [(20, 30), (25, 35)]
+    pixel_counts = [10000, 12000, 14000, 13000, 10000, 9000]
+    mock_count_green.side_effect = pixel_counts
+
+    mock_byte_array = b"MockByteArrayFromGoogleRequest"
+    mock_get.return_value.content = mock_byte_array
+
+    # Act
+    green_counts = sut.green_between(steps)
+
+    # Assert
+    array_assert(green_counts, pixel_counts, 10, "Unexpected pixel counts")
 
 
