@@ -1,12 +1,11 @@
 Things to ask:
 Do we include the build/distribution folders (from install of setup.py) on github or should i add to .gitignore
-Can we change the code (e.g. expand list comprehension) - readability/make it easier to debug
 How do you expect to install the python package. Should it be via "python setup.py install" or should it be using the "pip" keyword? (pg 237-239 of notes)
 
 
 Things for report:
 from - didn't work
-issues in github - closed out issues when we committed
+issues in github
 travis continuous integration - travis is very useful and he automatically installs pytest and mock. 
 Started testing on static methods as it allowed us to bypass the Greengraph constructor, it was handy to bypass the constructor as I hadn't developed mocks for the geocoder
 Found AAA (arrange, assert, act) style online

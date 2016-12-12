@@ -1,0 +1,26 @@
+
+test_command_process:
+ - mock_args: ["some_file.py", "--from", "Bristol", "--to", "Cambridge", "--steps", "5", "--out", "some_file.png"]
+   steps: 5
+   title: "Graph of green pixel count from Bristol to Cambridge"
+   output: "some_file.png"
+ - mock_args: ["some_file.py", "-f", "Bristol", "-t", "Cambridge", "-s", "5", "-o", "some_file.png"]
+   steps: 5
+   title: "Graph of green pixel count from Bristol to Cambridge"
+   output: "some_file.png" 
+ - mock_args: ["some_file.py", "--from", "Bristol", "--to", "Cambridge", "--steps", "5"]
+   steps: 5
+   title: "Graph of green pixel count from Bristol to Cambridge"
+   output: "GreenGraph.png"
+ - mock_args: ["some_file.py", "--to", "Cambridge", "--out", "some_file.png"]
+   steps: 10
+   title: "Graph of green pixel count from London to Cambridge"
+   output: "some_file.png" 
+ - mock_args: ["some_file.py", "-f", "Bristol", "-s", "5", "-o", "some_file.png"]
+   steps: 5
+   title: "Graph of green pixel count from Bristol to Oxford"
+   output: "some_file.png" 
+ - mock_args: ["some_file.py", "--from", "Bristol", "--to", "Cambridge", "--out", "some_file.png"]
+   steps: 10
+   title: "Graph of green pixel count from Bristol to Cambridge"
+   output: "some_file.png"

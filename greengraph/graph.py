@@ -23,7 +23,6 @@ class Greengraph(object):
         return response[0][1]
 
     def green_between(self, steps):
-
         geo_start = self.geolocate(self.start)
         geo_end = self.geolocate(self.end)
 

@@ -10,6 +10,7 @@ python:
 install:
   - python setup.py install
   - pip install coveralls
+  - pip install pyyaml
   - pip install pytest-cov
 
 # command to run tests

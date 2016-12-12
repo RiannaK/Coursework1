@@ -1,0 +1,98 @@
+
+test_map_init:
+ - lat: 10.0
+   long: 20.0
+   satellite: True
+   zoom: 10
+   xsize: 400
+   ysize: 400
+   sensor: False
+   base: "http://maps.googleapis.com/maps/api/staticmap?"
+   params: {'style': 'feature:all|element:labels|visibility:off',
+            'center': '10.0,20.0', 
+            'zoom': 10,
+            'maptype': 'satellite', 
+            'sensor': 'false', 
+            'size': '400x400'
+   }
+ - lat: 10.0
+   long: 20.0
+   satellite: True
+   zoom: 15
+   xsize: 400
+   ysize: 400
+   sensor: False
+   base: "http://maps.googleapis.com/maps/api/staticmap?"
+   params: {'style': 'feature:all|element:labels|visibility:off',
+            'center': '10.0,20.0', 
+            'zoom': 15,
+            'maptype': 'satellite', 
+            'sensor': 'false', 
+            'size': '400x400'
+   }
+ - lat: 10.0
+   long: 20.0
+   satellite: False
+   zoom: 10
+   xsize: 400
+   ysize: 400
+   sensor: False
+   base: "http://maps.googleapis.com/maps/api/staticmap?"
+   params: {'style': 'feature:all|element:labels|visibility:off',
+            'center': '10.0,20.0', 
+            'zoom': 10,
+            'sensor': 'false', 
+            'size': '400x400'
+   }
+ - lat: 10.0
+   long: 20.0
+   satellite: True
+   zoom: 10
+   xsize: 200
+   ysize: 200
+   sensor: False
+   base: "http://maps.googleapis.com/maps/api/staticmap?"
+   params: {'style': 'feature:all|element:labels|visibility:off',
+            'center': '10.0,20.0', 
+            'zoom': 10,
+            'maptype': 'satellite', 
+            'sensor': 'false', 
+            'size': '200x200'
+   }
+ - lat: 10.0
+   long: 20.0
+   satellite: True
+   zoom: 10
+   xsize: 400
+   ysize: 400
+   sensor: True
+   base: "http://maps.googleapis.com/maps/api/staticmap?"
+   params: {'style': 'feature:all|element:labels|visibility:off',
+            'center': '10.0,20.0', 
+            'zoom': 10,
+            'maptype': 'satellite', 
+            'sensor': 'true', 
+            'size': '400x400'
+   }
+
+test_map_green:
+ - red: 40
+   green: 60
+   blue: 80
+   threshold: 1.0
+   expected: False
+ - red: 40
+   green: 80
+   blue: 60
+   threshold: 1.0
+   expected: True
+ - red: 80
+   green: 60
+   blue: 80
+   threshold: 1.0
+   expected: False
+ - red: 40
+   green: 60
+   blue: 40
+   threshold: 2.0
+   expected: False

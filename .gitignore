@@ -5,3 +5,4 @@ dist
 .cache
 greengraph.egg-info
 .coverage
+*.png
