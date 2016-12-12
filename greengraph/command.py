@@ -32,8 +32,8 @@ def process():
     plt.xlabel('Step')
     plt.ylabel('Green pixels')
     plt.title(title)
-    plt.show()
     plt.savefig(arguments.out) # fixme no image is shown
+    plt.show()
 
 if __name__ == "__main__": # pragma: no cover
     process()
