@@ -74,3 +74,25 @@ test_map_init:
             'sensor': 'true', 
             'size': '400x400'
    }
+
+test_map_green:
+ - red: 40
+   green: 60
+   blue: 80
+   threshold: 1.0
+   expected: False
+ - red: 40
+   green: 80
+   blue: 60
+   threshold: 1.0
+   expected: True
+ - red: 80
+   green: 60
+   blue: 80
+   threshold: 1.0
+   expected: False
+ - red: 40
+   green: 60
+   blue: 40
+   threshold: 2.0
+   expected: False

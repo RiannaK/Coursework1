@@ -67,6 +67,7 @@ def test_geolocate():
     """Tests the geolocate method using the context manager variation of patch"""
 
     with patch.object(geopy.geocoders.GoogleV3, 'geocode') as mock_geocoder:
+
         # Arrange
         place = "London"
         sut = Greengraph("DummyLocation1", "DummyLocation2")
@@ -85,6 +86,7 @@ def test_geolocate():
 @patch.object(geopy.geocoders.GoogleV3, 'geocode')
 def test_geolocate_with_decorator(mock_geocoder):
     """Tests the geolocate method using the decorator variation of patch"""
+
     # Arrange
     place = "London"
     sut = Greengraph("DummyLocation1", "DummyLocation2")
@@ -105,6 +107,7 @@ def test_geolocate_with_decorator(mock_geocoder):
 @patch.object(requests, 'get')
 @patch.object(img, 'imread')
 def test_green_between(mock_imread, mock_get, mock_count_green, mock_graph):
+
     # Arrange
     start = "DummyLocation1"
     end = "DummyLocation2"

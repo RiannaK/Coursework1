@@ -3,13 +3,16 @@ from matplotlib import image as img
 from mock import patch
 import yaml
 import os
+import numpy as np
 from greengraph.map import Map
+from numpy.testing import assert_array_equal
 
 
 @patch.object(requests, 'get')
 @patch.object(img, 'imread')
 def test_map_init_with_defaults(mock_imread, mock_get):
     """Tests the map constuctor with default optional parameters"""
+
     # Arrange
     lattitude = 10
     longitude = 20
@@ -105,6 +108,7 @@ def test_map_count_green_with_defaults(mock_imread, mock_get, mock_green):
     assert count == 4
     mock_green.assert_called_with(1.1)
 
+
 @patch.object(Map, 'green')
 @patch.object(requests, 'get')
 @patch.object(img, 'imread')
@@ -128,4 +132,43 @@ def test_map_count_green(mock_imread, mock_get, mock_green):
     assert count == 4
     mock_green.assert_called_with(threshold)
 
-test_map_count_green()
+def get_test_pixel_data(r, g, b):
+    """Creates dummy pixel data to use in test_map_green"""
+    red_pixels = [r]*8
+    green_pixels = [g]*8
+    blue_pixels = [b]*8
+
+    pixel_array = red_pixels + green_pixels + blue_pixels
+    reshaped_pixels = np.array(pixel_array).reshape([3,2,4])
+    return np.transpose(reshaped_pixels, (2,1,0))
+
+@patch.object(requests, 'get')
+@patch.object(img, 'imread')
+def test_map_green(mock_imread, mock_get):
+    """Tests the green method"""
+
+    with open(os.path.join(os.path.dirname(__file__), 'fixtures', 'test_map_fixtures.yaml')) as fixtures_file:
+        fixtures = yaml.load(fixtures_file)['test_map_green']
+
+    for fixture in fixtures:
+
+        # Arrange
+        lattitude = 10
+        longitude = 20
+        expected = fixture.pop('expected')
+        red = fixture.pop('red')
+        green = fixture.pop('green')
+        blue = fixture.pop('blue')
+        threshold = fixture.pop('threshold')
+        mock_byte_array = b"MockByteArrayFromGoogleRequest"
+        mock_get.return_value.content = mock_byte_array
+        test_pixel_data = get_test_pixel_data(red, green, blue)
+        mock_imread.return_value = test_pixel_data
+
+        sut = Map(lattitude, longitude)
+
+        # Act
+        logicals = sut.green(threshold)
+
+        # Assert
+        assert_array_equal(logicals, expected, "logicals not as expected")
