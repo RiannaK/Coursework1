@@ -42,7 +42,7 @@ class Map(object):
         logicals = self.green(threshold)
         return np.sum(logicals)
 
-    def show_green(self, data, threshold=1.1):
+    def show_green(self, threshold=1.1):
         green = self.green(threshold)
         out = green[:, :, np.newaxis] * np.array([0, 1, 0])[np.newaxis, np.newaxis, :]
         buffer = BytesIO()

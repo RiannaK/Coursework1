@@ -1,6 +1,7 @@
 from matplotlib import image as img
 import requests
 from mock import patch
+from mock import call
 import pytest
 import geopy
 from numpy.testing import assert_array_almost_equal as array_assert
@@ -125,3 +126,6 @@ def test_green_between(mock_imread, mock_get, mock_count_green, mock_graph):
 
     # Assert
     array_assert(green_counts, pixel_counts, 10, "Unexpected pixel counts")
+    mock_graph.assert_has_calls([call(start), call(end)])
+
+test_green_between()

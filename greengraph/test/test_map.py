@@ -120,7 +120,7 @@ def test_map_count_green(mock_imread, mock_get, mock_green):
     mock_byte_array = b"MockByteArrayFromGoogleRequest"
     mock_get.return_value.content = mock_byte_array
     threshold = 1.5
-    mock_green_response = [True, True, True, True, False, False, False]
+    mock_green_response = np.array([[True, True], [True, True], [False, False]])
     mock_green.return_value = mock_green_response
 
     sut = Map(lattitude, longitude)
@@ -172,3 +172,27 @@ def test_map_green(mock_imread, mock_get):
 
         # Assert
         assert_array_equal(logicals, expected, "logicals not as expected")
+
+@patch.object(img, 'imsave')
+@patch.object(Map, 'green')
+@patch.object(requests, 'get')
+@patch.object(img, 'imread')
+def test_map_show_green(mock_imread, mock_get, mock_green, mock_imsave):
+    """Tests the show_green method with specified threshold input"""
+    # Arrange
+    lattitude = 10
+    longitude = 20
+    mock_byte_array = b"MockByteArrayFromGoogleRequest"
+    mock_get.return_value.content = mock_byte_array
+    threshold = 1.5
+    mock_green_response = np.array([[True, True], [True, True], [False, False]])
+    mock_green.return_value = mock_green_response
+
+    sut = Map(lattitude, longitude)
+
+    # Act
+    sut.show_green(threshold)
+
+    # Assert
+    mock_green.assert_called_with(threshold)
+    mock_imsave.assert_called_once()
