@@ -9,7 +9,7 @@ Assignment 1: Greengraph
 ###What does it do?
 Greengraph's aim is to show the amount of green between two places. It is based on the number of green pixels within satellite images that are taken at a given number of steps between two specified places. The output shows a plot of the green pixel count at each step, indicating how green the space between the two places is. 
 
-The example below shows the green pixel count between Bristol, UK and Cambridge, UK when considering 10 steps between them:
+The example below shows the green pixel count between Bristol, UK and Cambridge, UK when considering 50 steps between them:
 
 ![insert image of output graph of Briz to Cam in 10 steps] <img src=>
 
@@ -26,16 +26,16 @@ Downloading from GitHub?
  
 Installing directly from GitHub?
  
- * Type (sudo - needed?) ```pip install git+git://github.com/RiannaK/Coursework1.git``` into the terminal
+ * Type ```pip install git+git://github.com/RiannaK/Coursework1.git``` into the terminal
 
 
 ###How to Use
 
 Once installed, the greengraph script can be called from the command line using the following syntax:
 
-```graph --from Bristol --to Cambridge --steps 10 --out Bristol_Cam_10.png ```
+```graph --from Bristol --to Cambridge --steps 50 --out Bristol_Cam_50.png```
 
-Firstly, consider the two places to analyse, and in how many steps? In the above, Bristol and Cambridge, in 10 steps, were chosen.
+Firstly, consider the two places to analyse, and in how many steps? In the above, Bristol and Cambridge, in 50 steps, were chosen.
 
 There are four command line arguments:
 
