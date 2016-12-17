@@ -11,7 +11,7 @@ Greengraph's aim is to show the amount of green between two places. It is based 
 
 The example below shows the green pixel count between Bristol, UK and Cambridge, UK when considering 50 steps between them:
 
-![insert image of output graph of Briz to Cam in 10 steps] <img src=>
+<img src="https://github.com/RiannaK/Coursework1/blob/master/Resources/Bristol_Cam_50.png" alt="Sample output from greengraph script" width="50%" height="50%"/>
 
 ###How to Install
 
