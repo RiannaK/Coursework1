@@ -7,11 +7,10 @@ Assignment 1: Greengraph
 | Develop |[![Build Status](https://travis-ci.org/RiannaK/Coursework1.svg?branch=develop)](https://travis-ci.org/RiannaK/Coursework1)| [![Coverage Status](https://coveralls.io/repos/github/RiannaK/Coursework1/badge.svg?branch=develop)](https://coveralls.io/github/RiannaK/Coursework1?branch=develop) |
 
 ###What does it do?
+<img src="https://github.com/RiannaK/Coursework1/blob/master/Resources/Bristol_Cam_50.png" alt="Sample output from greengraph script" width="50%" height="50%" align="right"/>
 Greengraph's aim is to show the amount of green between two places. It is based on the number of green pixels within satellite images that are taken at a given number of steps between two specified places. The output shows a plot of the green pixel count at each step, indicating how green the space between the two places is. 
 
-The example below shows the green pixel count between Bristol, UK and Cambridge, UK when considering 50 steps between them:
-
-<img src="https://github.com/RiannaK/Coursework1/blob/master/Resources/Bristol_Cam_50.png" alt="Sample output from greengraph script" width="50%" height="50%"/>
+The example to the right shows the green pixel count between Bristol, UK and Cambridge, UK when considering 50 steps between them.
 
 ###How to Install
 
