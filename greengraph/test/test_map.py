@@ -46,7 +46,6 @@ def test_map_init(mock_imread, mock_get):
         fixtures = yaml.load(fixtures_file)['test_map_init']
 
     for fixture in fixtures:
-
         # Arrange
         lat = fixture.pop('lat')
         long = fixture.pop('long')
@@ -85,6 +84,7 @@ def test_map_repr():
 
     # Assert
     assert representation == "300x500 map centered at (10,20)"
+
 
 @patch.object(Map, 'green')
 @patch.object(requests, 'get')
@@ -132,15 +132,17 @@ def test_map_count_green(mock_imread, mock_get, mock_green):
     assert count == 4
     mock_green.assert_called_with(threshold)
 
+
 def get_test_pixel_data(r, g, b):
     """Creates dummy pixel data to use in test_map_green"""
-    red_pixels = [r]*8
-    green_pixels = [g]*8
-    blue_pixels = [b]*8
+    red_pixels = [r] * 8
+    green_pixels = [g] * 8
+    blue_pixels = [b] * 8
 
     pixel_array = red_pixels + green_pixels + blue_pixels
-    reshaped_pixels = np.array(pixel_array).reshape([3,2,4])
-    return np.transpose(reshaped_pixels, (2,1,0))
+    reshaped_pixels = np.array(pixel_array).reshape([3, 2, 4])
+    return np.transpose(reshaped_pixels, (2, 1, 0))
+
 
 @patch.object(requests, 'get')
 @patch.object(img, 'imread')
@@ -151,7 +153,6 @@ def test_map_green(mock_imread, mock_get):
         fixtures = yaml.load(fixtures_file)['test_map_green']
 
     for fixture in fixtures:
-
         # Arrange
         lattitude = 10
         longitude = 20
@@ -172,6 +173,7 @@ def test_map_green(mock_imread, mock_get):
 
         # Assert
         assert_array_equal(logicals, expected, "logicals not as expected")
+
 
 @patch.object(img, 'imsave')
 @patch.object(Map, 'green')

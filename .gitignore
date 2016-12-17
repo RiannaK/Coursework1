@@ -6,3 +6,4 @@ dist
 greengraph.egg-info
 .coverage
 *.png
+

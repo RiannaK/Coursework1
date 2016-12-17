@@ -1,6 +1,6 @@
 
 
-This assignment was completed as part of the UCL MPHYG0001: Research Software Engineering with Python course. The code may be used according the included licence, please use the citation:
+This assignment was completed as part of the UCL MPHYG0001: Research Software Engineering with Python course. Greengraph may be used according the included licence, however please include the following citation:
 
 R. Kelly, Greengraph, (2016), GitHub repository: https://github.com/RiannaK/Coursework1 
 

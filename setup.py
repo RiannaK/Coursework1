@@ -5,5 +5,5 @@ setup(
     version="0.1",
     packages=find_packages(exclude=["*test"]),
     scripts=["scripts/graph"],
-    install_requires=["argparse", 'matplotlib', 'geopy', 'requests']
+    install_requires=["argparse", "matplotlib", "geopy", "requests", "numpy"]
 )
