@@ -17,24 +17,21 @@ The example below shows the green pixel count between Bristol, UK and Cambridge,
 
 There are two options to install the package: manually download and install, or install directly from GitHub using the standard pip command.
 
- Downloading from GitHub?
+Downloading from GitHub?
  
  * Download the package as a zip file from GitHub
- * Go to command line and install using the following command:
+ * From the command line, install using the following command:
 	- For Windows users ```python setup.py install```
-	- For Mac and other users ```sudo python setup.py install``` 
- * Then 
- * See below for an example of how to use the library
+	- For Mac and Linux ```sudo python setup.py install```
  
- Installing directly from GitHub?
+Installing directly from GitHub?
  
  * Type (sudo - needed?) ```pip install git+git://github.com/RiannaK/Coursework1.git``` into the terminal
- * Then 
- * See below for an example of how to use the library
+
 
 ###How to Use
 
-Ultimately the command line will look something like this:
+Once installed, the greengraph script can be called from the command line using the following syntax:
 
 ```graph --from Bristol --to Cambridge --steps 10 --out Bristol_Cam_10.png ```
 
@@ -42,19 +39,17 @@ Firstly, consider the two places to analyse, and in how many steps? In the above
 
 There are four command line arguments:
 
-| Input long | Input short |    Default    | 
-| ---------- | ----------- | ------------- |
-| --from     |   -f        | London        | 
-| --to       |   -t        | Oxford        | 
-| --steps    |   -s        | 10            | 
-| --out      |   -o        | GreenGraph.py | 
+| Arg long | Arg short |    Default     | 
+| -------- | ----------| -------------- |
+| --from   |   -f      | London         | 
+| --to     |   -t      | Oxford         | 
+| --steps  |   -s      | 10             | 
+| --out    |   -o      | GreenGraph.png | 
 
 
 If an input is not specified it will run with the default. 
 For example, if only ```graph --from Bristol ``` was input, the output will be returned as though ```graph --from Bristol --to Oxford --steps 10 --out GreenGraph.png``` had been input.
 
-The output graph will be generated automatically as a pop-up on the screen, and will also be saved in the file location of the script (i.e. where it was called?). Unless specified, the default file name for this image is 'GreenGraph.png'.
-
-
+The output graph will be generated automatically as a pop-up on the screen, and will also be saved in the current directory. Unless specified, the default file name for this image is 'GreenGraph.png'.
 
 This assignment was completed as part of the UCL [MPHYG0001: Research Software Engineering with Python course] (http://github-pages.ucl.ac.uk/rsd-engineeringcourse/).
