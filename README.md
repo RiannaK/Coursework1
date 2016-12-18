@@ -51,8 +51,8 @@ There are four command line arguments:
 
 
 If an input is not specified it will run with the default. 
-For example, if only ```graph --from Bristol ``` was input, the output will be returned as though ```graph --from Bristol --to Oxford --steps 10 --out GreenGraph.png``` had been input.
+For example, if only ```greengraph --from Bristol ``` was input, the output will be returned as though ```greengraph --from Bristol --to Oxford --steps 10 --out GreenGraph.png``` had been input.
 
 The output graph will be generated automatically as a pop-up on the screen, and will also be saved in the current directory. Unless specified, the default file name for this image is 'GreenGraph.png'.
 
-This assignment was completed as part of the UCL [MPHYG0001: Research Software Engineering with Python course] (http://github-pages.ucl.ac.uk/rsd-engineeringcourse/).
+This assignment was completed as part of the UCL [MPHYG001: Research Software Engineering with Python course] (http://github-pages.ucl.ac.uk/rsd-engineeringcourse/).

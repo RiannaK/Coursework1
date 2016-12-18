@@ -70,13 +70,17 @@ def test_map_init(mock_imread, mock_get):
         mock_get.assert_called_with(base, params=params)
 
 
-def test_map_repr():
+@patch.object(requests, 'get')
+@patch.object(img, 'imread')
+def test_map_repr(mock_imread, mock_get):
     """Tests map representation"""
 
     # Arrange
     grid_size = (300, 500)
     lat = 10
     long = 20
+    mock_byte_array = b"MockByteArrayFromGoogleRequest"
+    mock_get.return_value.content = mock_byte_array
     sut = Map(lat, long, size=grid_size)
 
     # Act
