@@ -1,10 +1,10 @@
-from matplotlib import image as img
-import requests
-from mock import patch
-from mock import call
-import pytest
 import geopy
+import requests
+from matplotlib import image as img
+from mock import call
+from mock import patch
 from numpy.testing import assert_array_almost_equal as array_assert
+
 from greengraph.graph import Greengraph
 from greengraph.map import Map
 
