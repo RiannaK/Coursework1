@@ -4,6 +4,6 @@ setup(
     name="greengraph",
     version="0.1",
     packages=find_packages(exclude=["*test"]),
-    scripts=["scripts/graph"],
+    scripts=["scripts/greengraph"],
     install_requires=["argparse", "matplotlib", "geopy", "requests", "numpy"]
 )

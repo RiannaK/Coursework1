@@ -36,7 +36,7 @@ Installing directly from GitHub?
 
 Once installed, the greengraph script can be called from the command line using the following syntax:
 
-```graph --from Bristol --to Cambridge --steps 50 --out Bristol_Cam_50.png```
+```greengraph --from Bristol --to Cambridge --steps 50 --out Bristol_Cam_50.png```
 
 Firstly, consider the two places to analyse, and in how many steps? In the above, Bristol and Cambridge, in 50 steps, were chosen.
 
